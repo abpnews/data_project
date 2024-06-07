@@ -1,0 +1,533 @@
+<style>
+  .col {
+    float: left;
+  }
+
+  .pt20 {
+    padding-top: 20px;
+  }
+
+  .col3 {
+    width: 33.33%;
+  }
+
+  .col2 {
+    width: 50%;
+  }
+
+  .tr {
+    text-align: right;
+  }
+
+  .tl {
+    text-align: left;
+  }
+
+  .tc {
+    text-align: center;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row {
+    border-bottom: 1px dotted #9e9393;
+    margin-bottom: 10px;
+  }
+
+  .col div {
+    margin: 0;
+    padding: 0;
+    color: #9e9393;
+  }
+
+  .col p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .train_running {
+    width: 100%;
+    float: left;
+  }
+
+  .train_running .fixed_ul {
+    position: fixed;
+    top: 0;
+    width: calc(100% - 20px);
+    z-index: 3;
+    max-width: 750px;
+  }
+
+  .train_running ul:first-child {
+    background: none !important;
+    border-bottom: none !important;
+  }
+
+  .train_running ul {
+    width: 100%;
+    float: none;
+    border-bottom: solid 1px #a0bad2;
+    border-radius: 2px;
+    display: table;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  .train_running.train_mobile_style li:nth-child(1) {
+    width: 28%;
+  }
+
+  .train_running ul:first-child li {
+    background-color: lightseagreen;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: none;
+  }
+
+  .train_mobile_style li:nth-child(1) {
+    padding-left: 35px;
+  }
+
+  .train_running li:nth-child(1) {
+    text-transform: capitalize;
+    text-align: left;
+  }
+
+  .train_running li {
+    display: table-cell;
+    float: none;
+    padding: 8px 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    border-right: solid 1px #95b3cf;
+    margin-right: 1px;
+    word-wrap: break-word;
+  }
+
+  .train_running.train_mobile_style li:nth-child(2) {
+    width: 10%;
+  }
+
+  .train_running li:nth-child(2) {
+    width: 12%;
+    text-align: center;
+  }
+
+  .train_mobile_style li {
+    font-size: 14px;
+    padding: 12px 4px;
+  }
+
+  .train_running.train_mobile_style li:nth-child(3) {
+    width: 12%;
+  }
+
+  .train_running li:nth-child(3) {
+    width: 12%;
+    text-align: center;
+  }
+
+  .train_running.train_mobile_style li:nth-child(4),
+  .train_running.train_mobile_style li:nth-child(5) {
+    width: 19%;
+  }
+
+  .train_running li:nth-child(4) {
+    width: 18%;
+    text-align: center;
+  }
+
+  .train_running li:nth-child(5) {
+    width: 18%;
+    text-align: center;
+  }
+
+  .train_running li:nth-child(6) {
+    width: 18%;
+    text-align: center;
+  }
+
+  .train_running ul:last-child {
+    border-bottom: none;
+  }
+
+  .train_running li:last-child {
+    border-right: none;
+    margin-right: 0;
+  }
+
+  .train_running ul:first-child {
+    background: none !important;
+    border-bottom: none !important;
+  }
+
+  .train_running ul:nth-child(2n + 1) {
+    background-color: #fff;
+  }
+
+  .train_running .station_on_mob {
+    display: none;
+  }
+
+  @media screen and (max-width: 699px) {
+    .train_running.train_mobile_style.train_mobile_style ul li {
+      border: none;
+    }
+
+    .train_running.train_mobile_style.train_mobile_style ul li:nth-child(1) {
+      width: 48%;
+      border: none;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .train_running.train_mobile_style.train_mobile_style ul li:nth-child(2) {
+      width: 30%;
+      border: none;
+      border-radius: 0;
+      text-align: left;
+    }
+
+    .train_mobile_style ul li {
+      padding: 15px 5px;
+      font-size: 14px;
+    }
+
+    .train_running.train_mobile_style.train_mobile_style ul li:nth-child(3) {
+      width: 22%;
+      border: none;
+      border-radius: 0 2px 2px 0;
+      text-align: left;
+    }
+
+    .train_mobile_style ul li:nth-last-child(-n+3) {
+      display: none;
+    }
+
+    .station_on_mob {
+      display: block !important;
+      width: 100%;
+      text-transform: none;
+      font-weight: 400;
+      font-size: 13px;
+      color: #888;
+      padding-top: 2px;
+      margin-bottom: -3px;
+    }
+
+  }
+
+  .delay {
+    color: #e36763;
+  }
+
+
+
+
+  .depart,
+  .train_running ul.depart {
+    background-color: #eee;
+    opacity: 0.6;
+    position: relative;
+  }
+
+  .depart:before,
+  .departed:before {
+    content: "";
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 3px;
+    top: 8px;
+    border: solid 2px #999;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .depart:after,
+  .departed:after {
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    left: 11px;
+    top: 13px;
+    width: 4px;
+    border-bottom: 2px solid #999;
+    height: 8px;
+    border-right: 2px solid #999;
+    transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  .upcoming:after {
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    left: 11px;
+    top: 13px;
+    width: 4px;
+    height: 8px;
+  }
+
+  .upcoming {
+    position: relative;
+  }
+
+  .upcoming:before {
+    content: "";
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 3px;
+    top: 8px;
+    border: solid 2px #0766bd;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .cureent {
+    position: relative;
+  }
+
+  .cureent:before {
+    content: "";
+    display: block;
+    background: #48de20;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+  }
+
+  .cureent:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    border-radius: 50%;
+    border: 1px solid #48de20;
+    height: 18px;
+    width: 18px;
+    -webkit-animation: ripple 1s linear 1s infinite;
+    animation: ripple 1s linear 1s infinite;
+  }
+
+  .cureent,
+  .train_running ul.cureent {
+    background-color: #dfffd8;
+  }
+</style>
+
+<div class="data"> <?php // p($this->livestatus); 
+                    ?>
+  <form id="search-form" name='liveForm' method="POST" action="">
+    <div class="pnr-form">
+      <?php if ($this->trainNoErr != '') { ?>
+        <div class="col-lg-12" style="color:red;"><?php echo $this->trainNoErr; ?></div>
+      <?php } ?>
+      <?php if (isset($this->livestatus['error']) && $this->livestatus['error'] > 0) { ?>
+        <div class="col-lg-12" style="color:red;">Error while getting current status, Please try again</div>
+      <?php } ?>
+
+      <div class="col-lg-6 align-self-center">
+        <fieldset>
+          <input type="text" name='trainno' maxlength="10" onkeypress='return ((event.charCode >= 48 && event.charCode <= 57) ||  event.charCode == 0)' id='trainno' value='<?php echo $this->trainno; ?>' placeholder="Train no." required="" />
+        </fieldset>
+      </div>
+      <div class="col-lg-6 align-self-center">
+
+        <select name="date" id="date">
+          <?php for ($i = -1; $i < 3; $i++) {
+            $t = strtotime("$i day");
+            if ($i == -1) {
+              $day = "Yesterday";
+            } else if ($i == 0) {
+              $day = "Today";
+            } elseif ($i == 1) {
+              $day = "Tomorrow";
+            } elseif ($i == 2) {
+              $day = "2 Days ago";
+            }
+          ?>
+            <option value="<?php echo date('Y-m-d', $t); ?>" <?php if ($this->date == date('Y-m-d', $t)) {
+                                                                echo "selected";
+                                                              } ?>><?php echo date('d-m-Y', $t) . " ($day)";  ?></option>
+
+
+          <?php
+          }
+          ?>
+        </select>
+
+      </div>
+      <div class="col-lg-6">
+        <fieldset>
+          <div class="main-button"><input type='submit' name='submit' value='Train Running Status' id='pnrSumbit' style="border:1px solid red !important; background-color: lightseagreen" /></div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+
+  <?php if (isset($this->livestatus['currentStationName']) && $this->livestatus['currentStationName'] != "") {
+
+    //p($this->livestatus['runnStations']);
+  ?>
+
+    <div>
+
+      <div class="train_running train_mobile_style">
+        <div>
+          <ul>
+            <li>Station</li>
+            <li>Arrives</li>
+            <li>Departs</li>
+            <li>Late</li>
+            <li>Distance</li>
+            <li>Platform</li>
+          </ul>
+
+        </div>
+
+        <?php
+        //p($this->livestatus); //upcoming_stations previous_stations
+        foreach ($this->livestatus['debug']['previous_stations'] as $livedata) {
+          if ($livedata['arrival_delay'] > 59)
+            $hours = intdiv($livedata['arrival_delay'], 60) . 'hr ' . ($livedata['arrival_delay'] % 60);
+          else
+            $hours = $livedata['arrival_delay'];
+        ?>
+          <ul class="depart" id="depart">
+            <li title="<?php echo $livedata['station_name']; ?>" class="station_li"><?php echo $livedata['station_name']; ?> <span class="station_on_mob"><span class="delay"> <?php echo ($livedata['arrival_delay'] > 4) ? 'Late by ' . $hours . 'm' : ""; ?></span></span></li>
+            <li class="station_li"><?php echo $livedata['eta']; ?><span class="station_on_mob station_li"><?php echo $livedata['distance_from_source']; ?> km travelled</span></li>
+            <li class="station_li"><?php echo $livedata['etd']; ?><span class="station_on_mob station_li"></span></li>
+            <li><span class="delay"> <?php echo ($livedata['arrival_delay'] > 4) ? 'delay by ' . $hours . 'm' : ""; ?></span></li>
+            <li class="station_li"><?php echo ($livedata['distance_from_source'] > 0) ? $livedata['distance_from_source'] . " km travelled" : "--"; ?> </li>
+            <li class="station_li"></li>
+          </ul>
+
+
+        <?php
+          // foreach($livedata['non_stops'] as $nstop){
+          //     p($nstop);
+          // }
+
+        }
+
+
+        
+
+          if ($this->livestatus['currentStationPlatform'])
+            $stop = "";
+          else
+            $stop = "Non Stoppage";
+        
+        ?>
+
+        <ul class="cureent" id="cureent">
+          <li title="<?php echo $this->livestatus['currentStationName']; ?>" class="station_li"><?php echo str_replace("~", "", $this->livestatus['currentStationName']); ?> <span class="station_on_mob"></span></li>
+          <li class="station_li"><?php echo $this->livestatus['currentStationTime']; ?><span class="station_on_mob station_li"></span></li>
+          <li class="station_li"><?php echo $this->livestatus['currentStationTime']; ?><span class="station_on_mob station_li"></span></li>
+          <li><span class="delay"> <?php if ($stop!="") {
+                                      echo $stop;
+                                    } else { ?> <?php echo ($this->livestatus['delayMin'] > 2) ? "delay by $this->livestatus['delayMin'] m" : "Right Time" ?> <?php } ?></span></li>
+          <li class="station_li"><?php echo $this->livestatus['currentDistance']; ?> km travelled</li>
+          <li class="station_li"><?php echo ($this->livestatus['currentStationPlatform']) ? $this->livestatus['currentStationPlatform'] : ""; ?></li>
+        </ul>
+        <?php
+
+        foreach ($this->livestatus['debug']['upcoming_stations'] as $k => $livedata) {
+          if ($k != 0) {
+            if ($livedata['arrival_delay'] > 59)
+              $hours = intdiv($livedata['arrival_delay'], 60) . 'hr ' . ($livedata['arrival_delay'] % 60);
+            else
+              $hours = $livedata['arrival_delay'];
+        ?>
+            <ul class="upcoming" id="upcoming">
+              <li title="<?php echo $livedata['station_name']; ?>" class="station_li"><?php echo $livedata['station_name']; ?> <span class="station_on_mob"><span class="late"> <?php echo ($livedata['arrival_delay'] > 4) ? 'delay by ' . $hours . 'm' : ""; ?></span></span></li>
+              <li class="station_li"><?php echo $livedata['eta']; ?><span class="station_on_mob station_li"><?php echo $livedata['distance_from_source']; ?> km away</span></li>
+              <li class="station_li"><?php echo $livedata['etd']; ?><span class="station_on_mob station_li">Platform <?php echo $livedata['platform_number']; ?></span></li>
+              <li><span class="delay"><?php echo ($livedata['arrival_delay'] > 4) ? 'delay by ' . $hours . 'm' : ""; ?></span></li>
+              <li class="station_li"><?php echo $livedata['distance_from_source']; ?> km away</li>
+              <li class="station_li"><?php echo $livedata['platform_number']; ?></li>
+            </ul>
+
+
+        <?php }
+        }
+        ?>
+      </div>
+
+    <?php } else { //p($this->livestatus);
+     
+    $station = json_decode($this->schedule, true);
+   // p($station);
+    if($station){ 
+    ?>
+      <div class="train_running train_mobile_style">
+        <div>
+          <ul>
+            <li>Station</li>
+            <li>Arrives</li>
+            <li>Departs</li>
+            <li>Late</li>
+            <li>Distance</li>
+            <li>Platform</li>
+          </ul>
+          <?php
+          
+          foreach ($station['stationList'] as $st) {
+            $msg = "";
+            $rTime="";
+            if($this->livestatus['terminated']==1){
+            if ($this->livestatus['debug']['destination'] == $st['stationCode'])
+              $msg = $this->livestatus['debug']["new_message"];
+            }else{
+              
+                if ($this->livestatus['debug']['source'] == $st['stationCode']){
+                  $msg = $this->livestatus['debug']["title"];
+                  if($this->livestatus['delayMin']==0)
+                    $rTime = "Right Time";
+                }
+              
+            }
+          ?>
+
+            <ul class="upcoming" id="upcoming">
+              <li title="<?php echo $st['stationName']; ?>" class="station_li"><?php echo $st['stationName']; ?> </li>
+              <li class="station_li"><?php echo $st['arrivalTime']; ?></li>
+              <li class="station_li"><?php echo ($st['departureTime'] == "--") ? "End" : $st['departureTime']; ?></li>
+              <li style="color: #48de20;"> <?php echo $rTime; ?> <span class="delay"> </span></li>
+              <li class="station_li"><?php  echo  $msg; ?></li>
+              <li class="station_li"></li>
+            </ul>
+
+
+
+
+          <?php
+          }
+          ?>
+        </div>
+      <?php
+      }
+    } ?>
+
+
+
+      </div>

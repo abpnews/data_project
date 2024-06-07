@@ -1,0 +1,48 @@
+<div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            <h1>Age Calculator</h1>
+          </div>
+            <?php if($this->age!=''){?>
+            <div class="top-text header-text"><h2><span style='color:green'><?php  echo $this->age;?></span></h2></div>
+            <?php } ?>
+        </div>
+        <div class="col-lg-12">
+          <form id="search-form" name='calForm' method="POST" action="">
+
+            <div class="row">
+              
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <!--<input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required="">-->
+                      <input type="date" name='dob' id='dob' value='<?php  echo $this->dob;?>'  placeholder="YYYY-MM-DD (date of birth)"  required="" />
+                  </fieldset>
+              </div>
+                 <?php if($this->dobErr!=''){?>
+                <div style="color:red;"><?php  echo $this->dobErr;?></div>
+                <?php } ?>
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <input type="date" name='eod' value='<?php  echo $this->eod;?>' placeholder="Enter the end date" required=""/>
+                  </fieldset>
+                  
+              </div>
+                <?php if($this->eodErr!=''){?>
+                <div style="color:red;"><?php  echo $this->eodErr;?></div>
+                <?php } ?>
+              <div class="col-lg-6">                        
+                  <fieldset>
+                     
+                      <div class="main-button" ><input type='submit' name='submit' value='Get Age' id='clacSumbit' style="border:1px solid red !important; background-color: lightseagreen" /></div>
+                      <!--<button class="main-button"><i class="fa fa-search"></i> Calculate</button>-->
+                  </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>

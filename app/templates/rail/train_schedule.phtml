@@ -1,0 +1,182 @@
+<style>
+  .col {
+    float: left;
+  }
+
+  .pt20 {
+    padding-top: 20px;
+  }
+
+  .col3 {
+    width: 33.33%;
+  }
+  .col7 {
+    width: 14.25%;
+  }
+  
+
+  .col2 {
+    width: 50%;
+  }
+
+  .tr {
+    text-align: left;
+  }
+
+  .tl {
+    text-align: left;
+  }
+
+  .tc {
+    text-align: center;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row {
+    border-bottom: 1px dotted #9e9393;
+    margin-bottom: 10px;
+  }
+
+  .col div {
+    margin: 0;
+    padding: 0;
+    color: #9e9393;
+  }
+
+  .col p {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<div class="data">
+<?php $data = json_decode($this->schedule);
+ // p($data);
+?>
+<div>
+     
+
+      <h4 style="text-align: center;" >Train Route</h4>
+
+      <div class="row pt20">
+        <div class="col col3">          
+          <div class="head">Train Number</div>
+          <p><?php echo $data->trainNumber; ?></p>
+        </div>
+        <div class="col col3 tc">
+          <div>Train Name</div>
+          <p><?php echo $data->trainName; ?></p>
+        </div>
+        <div class="col col3 tr">
+              <div>Runs From Source</div>
+              <p><?php echo $data->stationFrom; ?></p>
+        </div>
+      </div>
+      
+
+      <div class="row pt20">
+        <div class="col col7">
+          <div>MON</div>
+        </div>
+        <div class="col col7 tr">
+          <div>TUE</div>
+        </div>
+        <div class="col col7 tr">
+          <div>WED</div>
+        </div>
+        <div class="col col7 tr">
+          <div>THU</div>
+        </div>
+        <div class="col col7 tr">
+          <div>FRI</div>
+        </div>
+        <div class="col col7 tr">
+          <div>SAT</div>
+        </div>
+        <div class="col col7 tr">
+          <div>SUN</div>
+        </div>
+      </div>
+      
+        <div class="row">
+          <div class="col col7">
+            <p><?php echo $data->trainRunsOnMon; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnTue; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnWed; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnThu; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnFri; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnSat; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $data->trainRunsOnSun; ?></p>
+          </div>
+        </div>
+      
+
+        <div class="row pt20">
+        <div class="col col7 sn">
+          <div>S.No.</div>
+        </div>
+        <div class="col col7 tr">
+          <div>Station Code</div>
+        </div>
+        <div class="col col7 tr">
+          <div>Station Name</div>
+        </div>        
+        <div class="col col7 tr">
+          <div>Arrival Time</div>
+        </div>
+        <div class="col col7 tr">
+          <div>Departure Time</div>
+        </div>
+        <div class="col col7 tr">
+          <div>Halt Time (In Minutes)</div>
+        </div>
+        <div class="col col7 tr">
+          <div>Distance</div>
+        </div>
+      </div>
+      <?php  foreach ($data->stationList as $p) { ?>
+        <div class="row">
+          <div class="col col7 sn">
+            <p><?php echo $p->stnSerialNumber; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->stationCode; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->stationName; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->arrivalTime; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->departureTime; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->haltTime; ?></p>
+          </div>
+          <div class="col col7 tr">
+            <p><?php echo $p->distance; ?></p>
+          </div>
+        </div>
+       <?php } ?>
+
+</div>
+
+
+

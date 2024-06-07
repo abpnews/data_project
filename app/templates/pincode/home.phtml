@@ -1,0 +1,78 @@
+<style>
+ 
+.pcontainer {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+	font-size: 30px;
+	margin-top: 0;
+}
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	font-size: 20px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 20px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+
+button[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+
+</style>
+ 	<div class="pcontainer">
+		<form method="get" name="myForm" action="pincodesearch" onsubmit="return validateForm()">
+			<h2>Search Post Office By Pin Code</h2>
+			<div class="form-group">
+				<label for="pincode">Enter Pincode:</label>
+				<input type="text" id="pincode" class="pin-code-search" name="pincode">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="srch-btn" >Search</button>
+			</div>
+		</form>
+		<div class="results">
+			<!-- Results will be displayed here -->
+		</div>
+	</div>
+ 
+<script>
+    function validateForm() {
+      var checkval = document.forms["myForm"]["pincode"].value;
+      var reg = /^(\d{4}|\d{6})$/;
+      if (checkval == "") {
+        alert("Please enter valid pin code");
+        return false;
+      }
+      if (inputvalues.match(reg)) {
+          
+      }
+}
+</script>

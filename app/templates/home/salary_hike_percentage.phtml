@@ -1,0 +1,48 @@
+<div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            <h1>Appraisal Percentage Calculator</h1>
+          </div>
+            <?php if($this->finalPercentage!=0){?>
+            <div class="top-text header-text"><h2>Your Salary Hike Percentage is <span style='color:green'><?php  echo $this->finalPercentage;?>%</span></h2></div>
+            <?php } ?>
+        </div>
+        <div class="col-lg-12">
+          <form id="search-form" name='calForm' method="POST" action="">
+
+            <div class="row">
+              
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <!--<input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required="">-->
+                      <input type="number" name='osal' value='<?php  echo $this->osal;?>'  placeholder="Enter your old salary"  required=""/>
+                  </fieldset>
+              </div>
+                 <?php if($this->osalErr!=''){?>
+                <div style="color:red;"><?php  echo $this->osalErr;?></div>
+                <?php } ?>
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <input type="number" name='nsal' value='<?php  echo $this->nsal;?>' placeholder="Enter your current salary" required=""/>
+                  </fieldset>
+                  
+              </div>
+                <?php if($this->nsalErr!=''){?>
+                <div style="color:red;"><?php  echo $this->nsalErr;?></div>
+                <?php } ?>
+              <div class="col-lg-6">                        
+                  <fieldset>
+                     
+                      <div class="main-button" ><input type='submit' name='submit' value='Get Percentage' id='clacSumbit' style="border:1px solid red !important; background-color: lightseagreen" /></div>
+                      <!--<button class="main-button"><i class="fa fa-search"></i> Calculate</button>-->
+                  </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>

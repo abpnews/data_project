@@ -1,0 +1,252 @@
+<style>
+  .col {
+    float: left;
+  }
+
+  .pt20 {
+    padding-top: 20px;
+  }
+
+  .col3 {
+    width: 33.33%;
+  }
+
+  .col2 {
+    width: 50%;
+  }
+
+  .tr {
+    text-align: right;
+  }
+
+  .tl {
+    text-align: left;
+  }
+
+  .tc {
+    text-align: center;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row {
+    border-bottom: 1px dotted #9e9393;
+    margin-bottom: 10px;
+  }
+
+  .col div {
+    margin: 0;
+    padding: 0;
+    color: #9e9393;
+  }
+
+  .col p {
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<div class="data">
+  <form id="search-form" name='pnrForm' method="POST" action="">
+    <div class="pnr-form">
+      <?php if ($this->pnrErr != '') { ?>
+        <div class="col-lg-12" style="color:red;"><?php echo $this->pnrErr; ?></div>
+      <?php } ?>
+      <?php if (isset($this->pnrStatus['error']) && $this->pnrStatus['error'] > 0) { ?>
+        <div class="col-lg-12" style="color:red;">Error while getting current status, Please try again</div>
+      <?php } ?>
+
+      <div class="col-lg-6 align-self-center">
+        <fieldset>
+          <input type="text" name='pnr' maxlength="10" onkeypress='return ((event.charCode >= 48 && event.charCode <= 57) ||  event.charCode == 0)' id='pnr' value='<?php echo $this->pnr; ?>' placeholder="Enter PNR no." required="" />
+        </fieldset>
+      </div>
+
+      <div class="col-lg-6">
+        <fieldset>
+          <div class="main-button"><input type='submit' name='submit' value='PNR Status' id='pnrSumbit' style="border:1px solid red !important; background-color: lightseagreen" /></div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+
+  <?php if (isset($this->pnrStatus['error']) && $this->pnrStatus['error'] == 0) { ?>
+    <div>
+      <h4 style="text-align: center;">PNR Number: <?php echo $this->pnr; ?></h4>
+
+      <div class="row pt20">
+        <div class="col col3">
+          <div class="head">FROM</div>
+          <p><?php echo $this->pnrStatus['data']['boarding_from']; ?></p>
+        </div>
+        <div class="col col3 tc">
+          <div>Date</div>
+          <p><?php echo date('d M Y', $this->pnrStatus['data']['boarding_date']); ?></p>
+        </div>
+        <div class="col col3 tr">
+          <div>TO</div>
+          <p><?php echo $this->pnrStatus['data']['boarding_to']; ?></p>
+        </div>
+      </div>
+
+      <div class="row pt20">
+        <div class="col col2">
+          <div>Train Number</div>
+          <p><?php echo $this->pnrStatus['data']['trin_no']; ?></p>
+        </div>
+        <div class="col col2 tr">
+          <div>Train Name</div>
+          <p><?php echo $this->pnrStatus['data']['train_name']; ?></p>
+        </div>
+      </div>
+
+      <div class="row pt20">
+        <div class="col col3">
+          <div>Passenger No.</div>
+        </div>
+        <div class="col col3 tr">
+          <div>Booking Status</div>
+        </div>
+        <div class="col col3 tr">
+          <div>Current Status</div>
+        </div>
+      </div>
+      <?php foreach ($this->pnrStatus['data']['passengers'] as $p) { ?>
+        <div class="row">
+          <div class="col col3">
+            <p><?php echo $p['passenger'] ?></p>
+          </div>
+          <div class="col col3 tr">
+            <p><?php echo $p['booking_status'] ?></p>
+          </div>
+          <div class="col col3 tr">
+            <p><?php echo $p['current_status'] . " / " . $p["seat_position"] ?></p>
+          </div>
+        </div>
+      <?php } ?>
+
+      <div class="row pt20">
+        <div class="col col3">
+          <div>Class</div>
+          <p><?php echo $this->pnrStatus['data']['class']; ?></p>
+        </div>
+        <div class="col col3 tc">
+          <div>Fare</div>
+          <p><?php echo $this->pnrStatus['data']['total_fair']; ?></p>
+        </div>
+        <div class="col col3 tr">
+          <div>Quota</div>
+          <p><?php echo $this->pnrStatus['data']['quota']; ?></p>
+        </div>
+      </div>
+
+
+      <div class="row pt20">
+        <div class="col col2">
+          <div>Charting Status</div>
+          <p><?php echo $this->pnrStatus['data']['chart_status']; ?></p>
+        </div>
+        <div class="col col2 tr">
+          <div>Train Status</div>
+          <p><?php echo $this->pnrStatus['data']['note']; ?></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt20">
+        <div class="col col2">
+          <a href="train-schedule?train_no=<?php echo $this->pnrStatus['data']['trin_no']; ?>"> Get Schedule </a>
+        </div>
+        <div class="col col2 tr">
+          
+        </div>
+  </div>
+
+  <div class="col-md-12 pt20">
+    <p style="color: blue;">
+      <b>*Please Note that in case the Final Charts have not been prepared, the Current Status might upgrade/downgrade at a later stage.</b>
+    </p>
+  </div>
+  
+  <?php } ?>
+
+ 
+
+  <table width="100%" border="1" align="center" cellpadding="0" cellspacing="1" class="legend" style="text-align: center; font-size: 14px;">
+    <tbody>
+      <tr class="text-center bg-primary">
+        <th style="text-align: center; font-size: 15px;" class="mainheading">Symbol</th>
+        <th style="text-align: center; font-size: 15px;" class="mainheading">Description</th>
+      </tr>
+      <tr>
+        <td>CAN / MOD</td>
+        <td>Cancelled or Modified Passenger</td>
+      </tr>
+      <tr>
+        <td>CNF / Confirmed</td>
+        <td>Confirmed (Coach/Berth number will be available after chart preparation)</td>
+      </tr>
+      <tr>
+        <td>RAC</td>
+        <td>Reservation Against Cancellation</td>
+      </tr>
+      <tr>
+        <td>WL #</td>
+        <td>Waiting List Number</td>
+      </tr>
+      <tr>
+        <td>RLWL</td>
+        <td>Remote Location Wait List</td>
+      </tr>
+      <tr>
+        <td>GNWL</td>
+        <td>General Wait List</td>
+      </tr>
+      <tr>
+        <td>PQWL</td>
+        <td>Pooled Quota Wait List</td>
+      </tr>
+      <tr>
+        <td>REGRET/WL</td>
+        <td>No More Booking Permitted</td>
+      </tr>
+      <tr>
+        <td>RELEASED</td>
+        <td>Ticket Not Cancelled but Alternative Accommodation Provided</td>
+      </tr>
+      <tr>
+        <td>R# #</td>
+        <td>RAC Coach Number Berth Number</td>
+      </tr>
+      <tr>
+        <td>WEBCAN</td>
+        <td>Railway Counter Ticket Passenger cancelled through internet and Refund not collected</td>
+      </tr>
+      <tr>
+        <td>WEBCANRF</td>
+        <td>Railway Counter Ticket Passenger cancelled through internet and Refund collected</td>
+      </tr>
+      <tr>
+        <td>RQWL</td>
+        <td>Roadside Quota Waitlist</td>
+      </tr>
+      <tr>
+        <td>DPWL</td>
+        <td>Duty Pass Waitlist</td>
+      </tr>
+      <tr>
+        <td>TQWL</td>
+        <td>Tatkal Quota Waitlist</td>
+      </tr>
+      <tr>
+        <td>NT</td>
+        <td>Passenger Not Turned Up</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,527 @@
+<style>
+    .font10 {
+        font-size: 10px;
+    }
+
+    .font11 {
+        font-size: 11px;
+    }
+
+    .font12 {
+        font-size: 12px;
+    }
+
+    .font13 {
+        font-size: 13px;
+    }
+
+    .font14 {
+        font-size: 14px;
+    }
+
+    .font15 {
+        font-size: 15px;
+    }
+
+    .font16 {
+        font-size: 16px;
+    }
+
+    .font18 {
+        font-size: 18px;
+    }
+
+    .font22 {
+        font-size: 22px;
+    }
+
+    .font-w500 {
+        font-weight: 500;
+    }
+
+    .font-w900 {
+        font-weight: 900;
+    }
+
+    .font-n {
+        font-weight: normal;
+    }
+
+    .font-b {
+        font-weight: bold;
+    }
+
+    .font_s-n {
+        font-style: normal;
+    }
+
+    .p-0 {
+        padding: 0;
+    }
+
+    .p-10 {
+        padding: 10px;
+    }
+
+    .p-12 {
+        padding: 12px;
+    }
+
+    .p15 {
+        padding: 15px;
+    }
+
+    .p-20 {
+        padding: 20px;
+    }
+
+    .pt-0 {
+        padding-top: 0;
+    }
+
+    .pt-10 {
+        padding-top: 10px;
+    }
+
+    .pt-20 {
+        padding-top: 20px;
+    }
+
+    .pt-25 {
+        padding-top: 25px;
+    }
+
+    .pb-0 {
+        padding-bottom: 0;
+    }
+
+    .pb-5 {
+        padding-bottom: 5px;
+    }
+
+    .pb-10 {
+        padding-bottom: 10px;
+    }
+
+    .pb-15 {
+        padding-bottom: 15px;
+    }
+
+    .pl-0 {
+        padding-left: 0;
+    }
+
+    .pl-5 {
+        padding-left: 5px;
+    }
+
+    .pl-8 {
+        padding-left: 8px;
+    }
+
+    .pl-10 {
+        padding-left: 10px;
+    }
+
+    .pl-15 {
+        padding-left: 15px;
+    }
+
+    .pr-0 {
+        padding-right: 0;
+    }
+
+    .pr-5 {
+        padding-right: 5px;
+    }
+
+    .pr-8 {
+        padding-right: 8px;
+    }
+
+    .pr-10 {
+        padding-right: 10px;
+    }
+
+    .pr-15 {
+        padding-right: 15px;
+    }
+
+    .ptb-0 {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .ptb-5 {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .ptb-10 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .ptb-12 {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .ptb-15 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .prl-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .prl-5 {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .prl-8 {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .prl-10 {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .prl-15 {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .prl-20 {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .m-0 {
+        margin: 0;
+    }
+
+    .m-5 {
+        margin: 5px;
+    }
+
+    .m-10 {
+        margin: 10px;
+    }
+
+    .m-15 {
+        margin: 15px;
+    }
+
+    .mb-30 {
+        margin-bottom: 2rem;
+    }
+
+    .mb-50 {
+        margin-bottom: 3rem;
+    }
+
+    .mt-0 {
+        margin-top: 0;
+    }
+
+    .mt-5 {
+        margin-top: 5px;
+    }
+
+    .mt-8 {
+        margin-top: 8px;
+    }
+
+    .mt-10 {
+        margin-top: 10px;
+    }
+
+    .mt-15 {
+        margin-top: 15px;
+    }
+
+    .mt-20 {
+        margin-top: 20px;
+    }
+
+    .mt-50 {
+        margin-top: 50px;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
+    }
+
+    .mb-5 {
+        margin-bottom: 5px;
+    }
+
+    .mb-8 {
+        margin-bottom: 8px;
+    }
+
+    .mb-10 {
+        margin-bottom: 0.63rem;
+    }
+
+    .mb-16 {
+        margin-bottom: 1rem;
+    }
+
+    .ml-0 {
+        margin-left: 0;
+    }
+
+    .ml-5 {
+        margin-left: 5px;
+    }
+
+    .ml-10 {
+        margin-left: 10px;
+    }
+
+    .ml-15 {
+        margin-left: 15px;
+    }
+
+    .mr-auto {
+        margin-right: auto;
+    }
+
+    .mr-0 {
+        margin-right: 0;
+    }
+
+    .mr-5 {
+        margin-right: 5px;
+    }
+
+    .mr-10 {
+        margin-right: 10px;
+    }
+
+    .mr-15 {
+        margin-right: 15px;
+    }
+
+    .mtb-0 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .mtb-5 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+
+
+    .tcenter {
+        text-align: center;
+    }
+
+    .posrel {
+        position: relative;
+    }
+
+    .bgwht {
+        background-color: white;
+    }
+
+    .bg_color {
+        background-color: antiquewhite;
+        height: 30px;
+    }
+
+    .height100p {
+        height: 100%;
+    }
+
+    .chngp.up {
+        background-color: #17b978;
+        padding: 0 7px;
+        display: inline-block;
+        border-radius: 4px;
+        font-size: 13px;
+        height: 25px;
+        line-height: 26px;
+        color: #fff;
+        white-space: nowrap;
+    }
+
+    .th-left {
+        float: left;
+        padding-top: 8px;
+        padding-left: 10px;
+    }
+
+    .col3 {
+        width: 33.33%;
+    }
+
+    #container {
+        column-count: 3;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        width: 100%;
+    }
+
+    .item {
+        display: inline-block;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    table tr td {
+        height: 40px;
+    }
+
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+    .tabcontent table tbody tr {
+        border-bottom: 1px solid antiquewhite;
+    }
+    .tabcontent table tr td {
+        border-right: 1px solid antiquewhite;
+    }
+
+    .tabcontent table td:nth-child(2), .tabcontent table th:nth-child(2) {
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .tabcontent table td:last-child, .tabcontent table th:last-child {
+        border-right: 0;
+        text-align: center;
+    }
+    
+</style>
+<div class="data">
+    <?php
+    $fuel = $this->cityFuel;
+    
+    ?>
+    <div> 
+        <section class="p15 mt-10">
+            <h3 class="font18 tcenter mb-16">Petrol, Diesel Prices <?php echo $fuel['stateName']; ?>  ( <?php echo date('d M Y'); ?> )</h3>
+            <div class="tabs_cont">
+                <div class="bgwht posrel">
+                    <div class="tb-data-con">
+                        <div class="tab">
+                            <button class="tablinks active" onclick="openCity(event, 'Petrol')">Petrol</button>
+                            <button class="tablinks" onclick="openCity(event, 'Diesel')">Diesel</button>
+
+                        </div>
+
+                        <!-- Tab content -->
+                        <div id="Petrol" class="tabcontent" style="display:block">
+                        <div class="overflow-hidden">
+                            <table width="100%" class="font16 " border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr class="bg_color">
+                                        <td class="th-left">District/City</td>
+                                        <td>Petrol</td>
+                                        <td>Change</td>                                       
+                                    </tr>
+ <tr>
+                                            <td><?php echo ucwords(strtolower($fuel['cityName'])); ?></td>
+                                            <td><?php echo $fuel['petrol']; ?> ₹/L</td>
+                                            <td><span class="chngp up lr">0.00</span></td>
+                                            
+                                        </tr>
+                                   
+
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+
+                        <div id="Diesel" class="tabcontent">
+                        <div class="overflow-hidden">
+                            <table width="100%" class="font16 " cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr class="bg_color">
+                                        <td class="th-left">District/City</td>
+                                        <td> Diesel</td>
+                                        <td>Change</td>
+                                    </tr>
+                                     <tr>
+                                            <td><?php echo ucwords(strtolower($fuel['cityName'])); ?></td>
+                                            <td><?php echo $fuel['diesel']; ?> ₹/L</td>
+                                            <td><span class="chngp up lr">0.00</span></td>
+                                        </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>

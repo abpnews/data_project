@@ -1,0 +1,9 @@
+<?php
+define('CACHE_ROOT','/tmp/');
+
+define('APPLICATION_ENV', 'local');
+
+define('DBHOST', '127.0.0.1');define('DBNAME', 'db_name');define('DBUSER', 'root');define('DBPASS', 'root');
+define('BASE_URL_BASE', 'http://localhost/devsquad/tools/public');
+define('CDN_URL', BASE_URL_BASE .'/static');
+?>

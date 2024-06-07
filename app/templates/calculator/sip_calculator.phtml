@@ -1,0 +1,59 @@
+<div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="top-text header-text">
+            <h1>SIP Calculator</h1>
+          </div>
+            <?php if($this->sip!=''){?>
+            <div class="top-text header-text"><h2><span style='color:green'><?php  echo $this->investedAmt;?></span></h2></div>
+            <div class="top-text header-text"><h2><span style='color:green'><?php  echo $this->sip;?></span></h2></div>
+            <div class="top-text header-text"><h2><span style='color:green'><?php  echo $this->mvalue;?></span></h2></div>
+          <?php } ?>
+        </div>
+        <div class="col-lg-12">
+          <form id="search-form" name='calForm' method="POST" action="">
+
+            <div class="row">
+              
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <!--<input type="address" name="address" class="searchText" placeholder="Enter a location" autocomplete="on" required="">-->
+                      <input type="number" name='amount' id='amount' value='<?php  echo $this->amount;?>'  placeholder="Monthly Investment"  required="" />
+                  </fieldset>
+              </div>
+                 <?php if($this->amountErr!=''){?>
+                <div style="color:red;"><?php  echo $this->amountErr;?></div>
+                <?php } ?>
+                <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <input type="text" name='rate' value='<?php  echo $this->tenure;?>' placeholder="Expected Return Rate (p.a) in %" required=""/>
+                  </fieldset>
+                  
+              </div>
+                <?php if($this->tenureErr!=''){?>
+                <div style="color:red;"><?php  echo $this->tenureErr;?></div>
+                <?php } ?>
+              <div class="col-lg-3 align-self-center">
+                  <fieldset>
+                      <input type="number" name='tenure' value='<?php  echo $this->tenure;?>' placeholder="Time Period in number of years" required=""/>
+                  </fieldset>
+                  
+              </div>
+                <?php if($this->tenureErr!=''){?>
+                <div style="color:red;"><?php  echo $this->tenureErr;?></div>
+                <?php } ?>
+              <div class="col-lg-6">                        
+                  <fieldset>
+                     
+                      <div class="main-button" ><input type='submit' name='submit' value='Get Your Gratuity' id='clacSumbit' style="border:1px solid red !important; background-color: lightseagreen" /></div>
+                      <!--<button class="main-button"><i class="fa fa-search"></i> Calculate</button>-->
+                  </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
