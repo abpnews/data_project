@@ -106,6 +106,10 @@ for($x=0;$x<count($college_state_url);$x++)
                           $gender =  addslashes($response_data_faculty[$k][2]);
                           $designation =  addslashes($response_data_faculty[$k][3]);
                           $dob =  addslashes($response_data_faculty[$k][4]);
+                          if($dob=='0000-00-00')
+                          {
+                            $dob=date("Y-m-d H:i:s");
+                           }
                           $area_specialisation = addslashes($response_data_faculty[$k][5]);
                           $appointment_type = addslashes($response_data_faculty[$k][6]);
                           $college_name = addslashes($response_data_faculty[$k][7]);
@@ -173,7 +177,13 @@ for($x=0;$x<count($college_state_url);$x++)
                           $faculty_name = addslashes($response_data_faculty[$k][1]);
                           $gender =  $response_data_faculty[$k][2];
                           $designation =  addslashes($response_data_faculty[$k][3]);
+                          
                           $dob =  $response_data_faculty[$k][4];
+                          if($dob=='0000-00-00')
+                         {
+                            $dob=date("Y-m-d H:i:s");
+                         }
+
                           $area_specialisation = addslashes($response_data_faculty[$k][5]);
                           $appointment_type = $response_data_faculty[$k][6];
                           $college_name = addslashes($response_data_faculty[$k][7]);
