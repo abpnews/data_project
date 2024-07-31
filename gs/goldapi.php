@@ -13,17 +13,32 @@ function fetchHTML($url) {
     curl_close($ch);
     return $output;
 }
+function getUpdatedTime($html)
+{
+    $htmArr=explode('<div class="date">',$html);
+    $dataSt1=$htmArr['1'];
+    $data2=explode(',GMT <br/></div>',$dataSt1);
+    $dataF=$data2['0'];
+    return $finalDate=date("Y-m-d",strtotime($dataF));
+    //echo $finalDate;
+    
+}
 
 $url = "https://www.goldpricesindia.com/";
 
 $html = fetchHTML($url);
 
-if ($html !== false) {
-    $filename = "captured_content.html";
-    file_put_contents($filename, $html);
-    
-    $saved_html = file_get_contents($filename);
 
+
+if ($html !== false) {
+    //$filename = "captured_content.html";
+    //file_put_contents($filename, $html);
+    
+    $saved_html = file_get_contents($url);
+    $updateDtae=getUpdatedTime($html);
+    
+    //die();
+    
     $dom = new DOMDocument();
     @$dom->loadHTML($saved_html); 
     
@@ -61,7 +76,7 @@ if ($html !== false) {
         $silver_price = isset($prices['silver']) ? $prices['silver'] : '-';
         echo "<tr><td>$city</td><td>$gold_price</td><td>$gold22_price</td><td>$silver_price</td></tr>";
         
-        echo $sqlinsert = "INSERT INTO  city_gold_sliver set data_date='".date("Y-m-d")."',city_state='".$city."',gold_24='".$gold_price."',gold_22='".$gold22_price."',sliver='".$silver_price."',status=1,created_at= NOW()";
+        echo $sqlinsert = "INSERT INTO  city_gold_sliver set data_date='".date("Y-m-d")."',city_state='".$city."',gold_24='".$gold_price."',gold_22='".$gold22_price."',sliver='".$silver_price."',status=1,created_at= NOW(),data_update_time='".$updateDtae."'";
         echo "<br>";
         if ($conn->query($sqlinsert) === TRUE)
         {
